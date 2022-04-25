@@ -5,9 +5,8 @@ import NavBarTab from './NavBarTab';
 const NavBar = () => {
   return (
     <div className="taskbar">
-      <div>
-        <NavBarTab tabname="asd" />
-      </div>
+      <NavBarTab tabname="home" link="/"/>
+      <NavBarTab tabname="Sign in" link="/signin" />
     </div>
   );
 }

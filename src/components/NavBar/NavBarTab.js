@@ -1,10 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './NavBarTab.css';
 
-const NavBarTab = ({ tabname }) => {
+const NavBarTab = ({ tabname, link }) => {
 
   return (
     <div className="tab">
-      {tabname}
+      <NavLink className="link" to={link}>{tabname}</NavLink>
     </div>
   )
 }
