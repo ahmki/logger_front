@@ -1,50 +1,87 @@
-import React, { useState } from 'react';
+import React from 'react';
+import * as yup from 'yup';
 import './SignIn.css';
+import { useNavigate } from 'react-router-dom';
 import { setLoggedUser } from '../../reducers/usersReducer';
 import { useDispatch } from 'react-redux';
+import { Formik, Form, Field } from 'formik';
+
+const signInValidationSchema = yup.object().shape({
+  username: yup.string()
+    .min(2, 'Too short!')
+    .required("Username is required"),
+  password: yup.string()
+    .required("Password is required"),
+});
+
+const initialValues = {
+  username: '',
+  password: '',
+};
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-  const signInHandler = (e) => {
-    e.preventDefault();
+  /*const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');*/
 
+  const signInHandler = (values) => {
+
+    const { username, password } = values; 
     dispatch(setLoggedUser({ username, password }))
+      .then(() => {
+        /*setUsername('');
+        setPassword('');*/
+        navigate("/");
+      })
       .catch(err => {
-        console.error('error: ', err);
+        console.log('error: ', err);
       });
-
-    setUsername('');
-    setPassword('');
   }
     
   return (
-    <form onSubmit={signInHandler}>
-      <div className='inputForm'>
-        <input 
-          type="text" 
-          placeholder='Username'
-          value={username}
-          name="Username"
-          onChange={({ target }) => setUsername(target.value)}
-        />
-      </div>
-      <div className='inputForm'>
-        <input 
-          type="password" 
-          placeholder='Password'
-          value={password}
-          name="Password"
-          onChange={({ target }) => setPassword(target.value)}
-        />
-        <div>
-          <button type="submit">Sign In</button>
-        </div>
-      </div>
+    <Formik 
+      initialValues={initialValues}
+      onSubmit={signInHandler}
+      validationSchema={signInValidationSchema}
+    >
+      {({ handleSubmit, errors, touched }) => (
+        <Form onSubmit={handleSubmit}>
 
-    </form>
+          <div className='inputForm'>
+            <Field 
+              name="username"
+              type="text" 
+              placeholder='Username'
+              /*value={username}
+              onChange={({ target }) => setUsername(target.value)}*/
+            />
+            {errors.username && touched.username ? (
+              <div>{errors.username}</div>
+            ): null }
+          </div>
+
+          <div className='inputForm'>
+            <Field 
+              name="password"
+              type="password" 
+              placeholder='Password'
+              /*value={password}
+              onChange={({ target }) => setPassword(target.value)}*/
+            />
+            {errors.password && touched.password ? (
+              <div>{errors.password}</div>
+            ): null }
+          </div>
+
+          <div>
+            <button type="submit">Sign In</button>
+          </div>
+
+        </Form>
+      )}
+    </Formik>
   )
 }
 
