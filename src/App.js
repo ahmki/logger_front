@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SignIn from './components/SignIn';
+import LogEntry from './components/LogEntry';
 import SignOut from './components/SignIn/SignOut';
 import Home from './components/Home';
 import { useDispatch } from 'react-redux';
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signout" element={<SignOut />} />
+        <Route path="/logentry" element={<LogEntry />} />
         <Route path="/" element={<Home/>} />
       </Routes>
     </div>
