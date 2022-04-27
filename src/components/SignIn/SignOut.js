@@ -9,9 +9,9 @@ const SignOut = () => {
 
   const signOutHandler = async () => {
     await localStorage.removeItem('loggedUser');
-    dispatch(setUser(null))
+    dispatch(setUser(null));
     navigate('/');
-  }
+  };
 
   useEffect(() => {
     signOutHandler();
@@ -21,7 +21,7 @@ const SignOut = () => {
     <>
       <div>logging out...</div>
     </>
-  )
-}
+  );
+};
 
 export default SignOut;

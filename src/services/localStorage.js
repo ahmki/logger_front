@@ -8,7 +8,7 @@ export const saveToLocalStorage = (state) => {
   catch(err) {
     console.error('error: ', err);
   }
-}
+};
 
 export const loadFromLocalStoraage = () => {
   try {
@@ -21,4 +21,4 @@ export const loadFromLocalStoraage = () => {
   catch(err) {
     console.error('error: ', err);
   }
-}
+};

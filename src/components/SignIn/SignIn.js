@@ -9,9 +9,9 @@ import { Formik, Form, Field } from 'formik';
 const signInValidationSchema = yup.object().shape({
   username: yup.string()
     .min(2, 'Too short!')
-    .required("Username is required"),
+    .required('Username is required'),
   password: yup.string()
-    .required("Password is required"),
+    .required('Password is required'),
 });
 
 const initialValues = {
@@ -28,20 +28,20 @@ const SignIn = () => {
 
   const signInHandler = (values) => {
 
-    const { username, password } = values; 
+    const { username, password } = values;
     dispatch(setLoggedUser({ username, password }))
       .then(() => {
         /*setUsername('');
         setPassword('');*/
-        navigate("/");
+        navigate('/');
       })
       .catch(err => {
         console.log('error: ', err);
       });
-  }
-    
+  };
+
   return (
-    <Formik 
+    <Formik
       initialValues={initialValues}
       onSubmit={signInHandler}
       validationSchema={signInValidationSchema}
@@ -50,9 +50,9 @@ const SignIn = () => {
         <Form onSubmit={handleSubmit}>
 
           <div className='inputForm'>
-            <Field 
+            <Field
               name="username"
-              type="text" 
+              type="text"
               placeholder='Username'
               /*value={username}
               onChange={({ target }) => setUsername(target.value)}*/
@@ -63,9 +63,9 @@ const SignIn = () => {
           </div>
 
           <div className='inputForm'>
-            <Field 
+            <Field
               name="password"
-              type="password" 
+              type="password"
               placeholder='Password'
               /*value={password}
               onChange={({ target }) => setPassword(target.value)}*/
@@ -82,7 +82,7 @@ const SignIn = () => {
         </Form>
       )}
     </Formik>
-  )
-}
+  );
+};
 
 export default SignIn;

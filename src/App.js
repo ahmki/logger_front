@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -17,8 +18,8 @@ function App() {
     const loggedUserLs = window.localStorage.getItem('loggedUser');
     if (loggedUserLs) {
       dispatch(setUser(JSON.parse(loggedUserLs)));
-    } 
-  }, [dispatch])
+    }
+  }, [dispatch]);
 
   return (
     <div className="App">

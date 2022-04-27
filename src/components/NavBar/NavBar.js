@@ -5,7 +5,7 @@ import NavBarTab from './NavBarTab';
 
 const NavBar = () => {
   const user = useSelector(state => state.user);
-  
+
   return (
     <div className="taskbar">
       <NavBarTab tabname="home" link="/"/>
@@ -13,13 +13,13 @@ const NavBar = () => {
       {!user
         ? <NavBarTab tabname="Sign in" link="/signin" />
         :
-          <>
-            <NavBarTab tabname="Sign out" link="/signout" />
-            <NavBarTab tabname="Add entry" link="/logentry" />
-          </> 
+        <>
+          <NavBarTab tabname="Sign out" link="/signout" />
+          <NavBarTab tabname="Add entry" link="/logentry" />
+        </>
       }
     </div>
   );
-}
+};
 
 export default NavBar;

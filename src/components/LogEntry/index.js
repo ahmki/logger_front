@@ -7,7 +7,7 @@ const initialValues = {
   name: '',
   review: '',
   mediaType: 'movie',
-}
+};
 
 const LogEntryForm = () => {
   const user = useSelector(state => state.user);
@@ -17,7 +17,7 @@ const LogEntryForm = () => {
 
     try {
       const entry = await addEntry(values, user);
-      console.log('entry', entry)
+      console.log('entry', entry);
     }
     catch(err) {
       console.log('error: ', err);
@@ -25,8 +25,8 @@ const LogEntryForm = () => {
   };
 
   return (
-    
-    <Formik 
+
+    <Formik
       initialValues={initialValues}
       onSubmit={entryHandler}
     >
@@ -63,7 +63,7 @@ const LogEntryForm = () => {
       )}
 
     </Formik>
-  )
-}
+  );
+};
 
 export default LogEntryForm;
