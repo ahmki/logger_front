@@ -11,7 +11,14 @@ const addEntry = async (entry, user) => {
     entry,
     config
   );
-  return res.data
+  return res.data;
 }
 
-export { addEntry };
+const getEntry = async (id) => {
+  const res = await axios.get(
+    `${apiBaseUrl}/logs/${id}`
+  )
+  return res.data;
+}
+
+export { addEntry, getEntry };

@@ -9,7 +9,7 @@ const initialValues = {
   mediaType: 'movie',
 }
 
-const LogEntry = () => {
+const LogEntryForm = () => {
   const user = useSelector(state => state.user);
 
   const entryHandler = async (values) => {
@@ -66,4 +66,4 @@ const LogEntry = () => {
   )
 }
 
-export default LogEntry;
+export default LogEntryForm;

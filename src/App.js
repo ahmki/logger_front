@@ -2,8 +2,9 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SignIn from './components/SignIn';
-import LogEntry from './components/LogEntry';
+import LogEntryForm from './components/LogEntry';
 import SignOut from './components/SignIn/SignOut';
+import LogEntry from './components/LogEntry/LogEntry';
 import Home from './components/Home';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -23,9 +24,10 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
+        <Route path="/logs/:id" element={<LogEntry />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signout" element={<SignOut />} />
-        <Route path="/logentry" element={<LogEntry />} />
+        <Route path="/logentry" element={<LogEntryForm />} />
         <Route path="/" element={<Home/>} />
       </Routes>
     </div>
