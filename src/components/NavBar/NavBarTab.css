@@ -1,7 +1,28 @@
 .link {
-  color: #d79921;
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 2px solid transparent;
+  display: inline-flex;
+  color: var(--c-text-tertiary);
+}
+
+.link:hover {
+  transition: 0.35s ease;
+  color: var(--c-text-primary);
+  border-color: var(--c-text-primary);
+}
+
+.activeLink {
+  text-decoration: none;
+  transition: 0.25s ease;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 2px solid transparent;
+  color: var(--c-text-primary);
+  border-color: var(--c-text-primary);
 }
 
 .tab {
-  margin-bottom: 5px;
+  display: inline-flex;
 }

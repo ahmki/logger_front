@@ -8,7 +8,14 @@ const NavBarTab = ({ tabname, link }) => {
 
   return (
     <div className="tab">
-      <NavLink className="link" to={link}>{tabname}</NavLink>
+      <NavLink
+        to={link}
+        className={({ isActive }) =>
+          isActive ? 'activeLink' : 'link'
+        }
+      >
+        {tabname}
+      </NavLink>
     </div>
   );
 };

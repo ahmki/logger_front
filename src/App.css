@@ -1,4 +1,4 @@
 body {
-  color: #ebdbb2;
-  background-color: #282828;
+  color: var(--c-text-primary);
+  background-color: var(--c-bg);
 }
