@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { addEntry } from '../../services/logService';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -11,13 +12,13 @@ const initialValues = {
 
 const LogEntryForm = () => {
   const user = useSelector(state => state.user);
+  const navigate = useNavigate();
 
   const entryHandler = async (values) => {
-    console.log('values', values);
 
     try {
       const entry = await addEntry(values, user);
-      console.log('entry', entry);
+      navigate(`/logs/${entry.id}`);
     }
     catch(err) {
       console.log('error: ', err);

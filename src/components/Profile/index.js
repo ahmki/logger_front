@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserData } from '../../services/userService';
+import './Profile.css';
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
-
     const fetchUser = async () => {
       try {
         const fetchedUser = await getUserData(id);
@@ -21,17 +21,27 @@ const Profile = () => {
     fetchUser();
   }, [id]);
 
-  const dataView = () => {
+  /* Main rendered JSX */
+  const profileView = () => {
     return (
-      <div>
-        {
-          userData.logs.map(log =>
-            <li key={log.id}>
-              {log.name}
-            </li>
-          )
-        }
-      </div>
+      <table className='profile'>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>review</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            userData.logs.map(log =>
+              <tr key={log.id}>
+                <td>{log.name}</td>
+                <td>{log.review}</td>
+              </tr>
+            )
+          }
+        </tbody>
+      </table>
     );
   };
 
@@ -47,7 +57,7 @@ const Profile = () => {
     <>
       {!userData
         ? loadView()
-        : dataView()
+        : profileView()
       }
     </>
   );
