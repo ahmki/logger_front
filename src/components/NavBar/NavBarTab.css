@@ -1,9 +1,12 @@
-.link {
+.link, .activeLink {
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-top: 2px solid transparent;
   display: inline-flex;
+}
+
+.link {
   color: var(--c-text-tertiary);
 }
 
@@ -14,11 +17,7 @@
 }
 
 .activeLink {
-  text-decoration: none;
   transition: 0.25s ease;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-top: 2px solid transparent;
   color: var(--c-text-primary);
   border-color: var(--c-text-primary);
 }
