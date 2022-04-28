@@ -14,8 +14,9 @@ const NavBar = () => {
         ? <NavBarTab tabname="Sign in" link="/signin" />
         :
         <>
-          <NavBarTab tabname="Sign out" link="/signout" />
           <NavBarTab tabname="Add entry" link="/logentry" />
+          <NavBarTab tabname="Profile" link={`/profile/${user.id}`} />
+          <NavBarTab tabname="Sign out" link="/signout" />
         </>
       }
     </div>
