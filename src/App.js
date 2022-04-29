@@ -8,6 +8,7 @@ import SignOut from './components/SignIn/SignOut';
 import Profile from './components/Profile';
 import LogEntry from './components/LogEntry/LogEntry';
 import Home from './components/Home';
+import Notification from './components/Notification';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { setUser } from './reducers/usersReducer';
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <Notification />
       <Routes>
         <Route path="/logs/:id" element={<LogEntry />} />
         <Route path="/profile/:id" element={<Profile />} />

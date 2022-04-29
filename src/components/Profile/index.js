@@ -24,24 +24,21 @@ const Profile = () => {
   /* Main rendered JSX */
   const profileView = () => {
     return (
-      <table className='profile'>
-        <thead>
-          <tr>
-            <th>name</th>
-            <th>review</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className='profile'>
+        <div className='header'>
+          entries
+        </div>
+        <div className='entries'>
           {
             userData.logs.map(log =>
-              <tr key={log.id}>
-                <td>{log.name}</td>
-                <td>{log.review}</td>
-              </tr>
+              <div className='entryItem' key={log.id}>
+                <div className='entryName'>{log.name}</div>
+                <div className='entryReview'>{log.review}</div>
+              </div>
             )
           }
-        </tbody>
-      </table>
+        </div>
+      </div>
     );
   };
 

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { setLoggedUser } from '../../reducers/usersReducer';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
+import { displayNotification } from '../../reducers/notificationReducer';
 
 const signInValidationSchema = yup.object().shape({
   username: yup.string()
@@ -33,6 +34,10 @@ const SignIn = () => {
       .then(() => {
         /*setUsername('');
         setPassword('');*/
+        dispatch(displayNotification({
+          message: 'successfully logged in',
+          class: 'info'
+        }, 4));
         navigate('/');
       })
       .catch(err => {

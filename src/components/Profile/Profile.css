@@ -1,18 +1,32 @@
 .profile {
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-td, th {
   border: 1px solid;
-  border-color: var(--c-gray-3);
-  padding: 0.5rem;
-  text-align: left;
+  width: 60%;
+}
+
+.header {
+  font-weight: 600;
+}
+
+.entries {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.entryItem {
+  padding: 1rem;
+  margin: 0.5rem;
+  border-bottom: 1px solid;
+  border-color: var(--c-gray-4);
+  display: flex;
+  flex-direction: column;
+}
+
+.entryName {
+  font-weight: 600;
 }
