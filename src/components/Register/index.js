@@ -2,6 +2,10 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import './Register.css';
+import { registerUser } from '../../services/userService';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { displayNotification } from '../../reducers/notificationReducer';
 
 const registerSchema = yup.object().shape({
   username: yup.string()
@@ -24,9 +28,24 @@ const initialValues = {
 };
 
 const Register = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const registerHandler = (values) => {
     console.log('register', values);
+    const { username, password } = values;
+
+    try {
+      registerUser({ username, password });
+      dispatch(displayNotification({
+        message: 'successfully created account, you may sign in now',
+        class: 'info'
+      }, 5));
+      navigate('/');
+    }
+    catch (err) {
+      console.log(err);
+    }
   };
 
   return (

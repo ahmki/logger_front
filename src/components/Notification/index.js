@@ -5,7 +5,6 @@ import './Notification.css';
 const Notification = () => {
   const notification = useSelector(state => state.notification);
   const showWhenVisible = notification.display ? '' : 'd-none';
-  console.log('notification', notification.class);
 
   return (
     <div className={showWhenVisible}>

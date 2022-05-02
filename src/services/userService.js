@@ -8,4 +8,11 @@ const getUserData = async (id) => {
   return res.data;
 };
 
-export { getUserData };
+const registerUser = async (user) => {
+  const res = await axios.post(
+    `${apiBaseUrl}/users`, user
+  );
+  return res.data;
+};
+
+export { getUserData, registerUser };
