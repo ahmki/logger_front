@@ -44,7 +44,10 @@ const Register = () => {
       navigate('/');
     }
     catch (err) {
-      console.log(err);
+      dispatch(displayNotification({
+        message: 'something went wrong!',
+        class: 'error'
+      }, 5));
     }
   };
 

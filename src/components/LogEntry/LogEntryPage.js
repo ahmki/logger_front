@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getEntry } from '../../services/logService';
+import Entry from '../Entry';
 
-const LogEntry = () => {
+const LogEntryPage = () => {
   const [logEntry, setLogEntry] = useState({});
   const id = useParams().id;
 
@@ -18,17 +19,9 @@ const LogEntry = () => {
 
   return (
     <div>
-      <div>
-        {logEntry.name}
-      </div>
-      <div>
-        {logEntry.review}
-      </div>
-      <div>
-        {logEntry.mediaType}
-      </div>
+      <Entry log={logEntry} />
     </div>
   );
 };
 
-export default LogEntry;
+export default LogEntryPage;

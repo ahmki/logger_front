@@ -7,7 +7,7 @@ import LogEntryForm from './components/LogEntry';
 import Register from './components/Register';
 import SignOut from './components/SignIn/SignOut';
 import Profile from './components/Profile';
-import LogEntry from './components/LogEntry/LogEntry';
+import LogEntryPage from './components/LogEntry/LogEntryPage';
 import Home from './components/Home';
 import Notification from './components/Notification';
 import { useDispatch } from 'react-redux';
@@ -29,7 +29,7 @@ function App() {
       <NavBar />
       <Notification />
       <Routes>
-        <Route path="/logs/:id" element={<LogEntry />} />
+        <Route path="/logs/:id" element={<LogEntryPage />} />
         <Route path="/profile/:id" element={<Profile />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signout" element={<SignOut />} />

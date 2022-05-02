@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserData } from '../../services/userService';
+import Entry from '../Entry';
 import './Profile.css';
 
 const Profile = () => {
@@ -24,19 +25,20 @@ const Profile = () => {
   /* Main rendered JSX */
   const profileView = () => {
     return (
-      <div className='profile'>
-        <div className='header'>
-          entries
-        </div>
-        <div className='entries'>
-          {
-            userData.logs.map(log =>
-              <div className='entryItem' key={log.id}>
-                <div className='entryName'>{log.name}</div>
-                <div className='entryReview'>{log.review}</div>
-              </div>
-            )
-          }
+      <div className='profileBg'>
+        <div className='profile'>
+          <div className='header'>
+            entries
+          </div>
+          <div className='entries'>
+            {
+              userData.logs.map(log =>
+                <div key={log.id}>
+                  <Entry log={log} />
+                </div>
+              )
+            }
+          </div>
         </div>
       </div>
     );
