@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SignIn from './components/SignIn';
 import LogEntryForm from './components/LogEntry';
+import Register from './components/Register';
 import SignOut from './components/SignIn/SignOut';
 import Profile from './components/Profile';
 import LogEntry from './components/LogEntry/LogEntry';
@@ -33,6 +34,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/logentry" element={<LogEntryForm />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<Home/>} />
       </Routes>
     </div>

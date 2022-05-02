@@ -24,4 +24,5 @@
 
 .tab {
   display: inline-flex;
+  padding-right: 1.5rem;
 }

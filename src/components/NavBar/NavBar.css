@@ -4,6 +4,6 @@
   padding-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-end;
   border-bottom: 1px solid var(--c-gray-3);
 }

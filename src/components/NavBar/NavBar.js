@@ -11,7 +11,11 @@ const NavBar = () => {
       <NavBarTab tabname="home" link="/"/>
 
       {!user
-        ? <NavBarTab tabname="Sign in" link="/signin" />
+        ?
+        <>
+          <NavBarTab tabname="Sign in" link="/signin" />
+          <NavBarTab tabname="Register" link="/register" />
+        </>
         :
         <>
           <NavBarTab tabname="Add entry" link="/logentry" />

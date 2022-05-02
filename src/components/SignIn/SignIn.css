@@ -1,3 +1,18 @@
+.signInBg {
+  display: flex;
+  justify-content: center;
+}
+
+.signIn {
+  display: flex;
+  justify-content: center;
+  background-color: var(--c-gray-2);
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 300px;
+  border-radius: 7px;
+}
+
 .inputForm {
   padding-top: 3px;
   margin: 3px;

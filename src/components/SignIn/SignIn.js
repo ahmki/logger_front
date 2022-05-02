@@ -46,47 +46,51 @@ const SignIn = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={signInHandler}
-      validationSchema={signInValidationSchema}
-    >
-      {({ handleSubmit, errors, touched }) => (
-        <Form onSubmit={handleSubmit}>
+    <div className='signInBg'>
+      <div className='signIn'>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={signInHandler}
+          validationSchema={signInValidationSchema}
+        >
+          {({ handleSubmit, errors, touched }) => (
+            <Form onSubmit={handleSubmit}>
 
-          <div className='inputForm'>
-            <Field
-              name="username"
-              type="text"
-              placeholder='Username'
-              /*value={username}
-              onChange={({ target }) => setUsername(target.value)}*/
-            />
-            {errors.username && touched.username ? (
-              <div>{errors.username}</div>
-            ): null }
-          </div>
+              <div className='inputForm'>
+                <Field
+                  name="username"
+                  type="text"
+                  placeholder='Username'
+                  /*value={username}
+                  onChange={({ target }) => setUsername(target.value)}*/
+                />
+                {errors.username && touched.username ? (
+                  <div>{errors.username}</div>
+                ): null }
+              </div>
 
-          <div className='inputForm'>
-            <Field
-              name="password"
-              type="password"
-              placeholder='Password'
-              /*value={password}
-              onChange={({ target }) => setPassword(target.value)}*/
-            />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ): null }
-          </div>
+              <div className='inputForm'>
+                <Field
+                  name="password"
+                  type="password"
+                  placeholder='Password'
+                  /*value={password}
+                  onChange={({ target }) => setPassword(target.value)}*/
+                />
+                {errors.password && touched.password ? (
+                  <div>{errors.password}</div>
+                ): null }
+              </div>
 
-          <div>
-            <button type="submit">Sign In</button>
-          </div>
+              <div>
+                <button type="submit">Sign In</button>
+              </div>
 
-        </Form>
-      )}
-    </Formik>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </div>
   );
 };
 

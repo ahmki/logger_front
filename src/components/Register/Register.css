@@ -1,0 +1,14 @@
+.registerBg {
+  display: flex;
+  justify-content: center;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  background-color: var(--c-gray-2);
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 500px;
+  border-radius: 7px;
+}
