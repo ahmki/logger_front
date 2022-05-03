@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import SearchBar from '../SearchBar';
 import './NavBar.css';
 import NavBarTab from './NavBarTab';
 
@@ -8,6 +9,7 @@ const NavBar = () => {
 
   return (
     <div className="taskbar">
+      <SearchBar />
       <NavBarTab tabname="home" link="/"/>
 
       {!user

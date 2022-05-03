@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { parse, format } from 'date-fns';
+import { format } from 'date-fns';
 
 const Entry = ({ log })  => {
   const { id, name, review, mediaType, date } = log;
-  console.log('log', log);
+
+  const dateFormatted = format(new Date(date), 'dd/MM/yyyy');
 
   return (
     <div>
@@ -12,7 +13,7 @@ const Entry = ({ log })  => {
         <div className='entryName'>{name}</div>
         <div className='entryReview'>{review}</div>
         <div className='entryMedia'>{mediaType}</div>
-        <div className='entryDate'>{date}</div>
+        <div className='entryDate'>{dateFormatted}</div>
       </div>
     </div>
   );
