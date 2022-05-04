@@ -7,6 +7,7 @@ import LogEntryForm from './components/LogEntry';
 import Register from './components/Register';
 import SignOut from './components/SignIn/SignOut';
 import Profile from './components/Profile';
+import Search from './components/Search';
 import LogEntryPage from './components/LogEntry/LogEntryPage';
 import Home from './components/Home';
 import Notification from './components/Notification';
@@ -35,6 +36,7 @@ function App() {
         <Route path="/signout" element={<SignOut />} />
         <Route path="/logentry" element={<LogEntryForm />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/" element={<Home/>} />
       </Routes>
     </div>
