@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getUserData } from '../../services/userService';
 import Entry from '../Entry';
 import './Profile.css';
@@ -7,6 +7,7 @@ import './Profile.css';
 const Profile = () => {
   const [userData, setUserData] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -22,6 +23,10 @@ const Profile = () => {
     fetchUser();
   }, [id]);
 
+  const directToLog = () => {
+    navigate('/logs/1');
+  };
+
   /* Main rendered JSX */
   const profileView = () => {
     return (
@@ -34,6 +39,9 @@ const Profile = () => {
             {
               userData.logs.map(log =>
                 <div key={log.id}>
+                  <button onClick={directToLog}>
+                      see
+                  </button>
                   <Entry log={log} />
                 </div>
               )
