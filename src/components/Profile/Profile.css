@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--c-gray-1);
+  background-color: var(--c-gray-100);
   width: 60%;
   border-radius: 7px;
 }
@@ -23,17 +23,5 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-}
-
-.entryItem {
-  padding: 1rem;
-  margin: 0.5rem;
-  border-bottom: 1px solid;
-  border-color: var(--c-gray-4);
-  display: flex;
-  flex-direction: column;
-}
-
-.entryName {
-  font-weight: 600;
+  width: 500px;
 }

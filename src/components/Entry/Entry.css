@@ -1,0 +1,34 @@
+
+.entryItem {
+  padding: 1rem;
+  margin: 0.5rem;
+  border-bottom: 1px solid;
+  border-color: var(--c-gray-300);
+  display: flex;
+  flex-direction: row;
+  width: 450px;
+  align-items: center;
+}
+
+.entryItemReview {
+  margin-left: 24px;
+}
+
+.entryItemInfo {
+  padding-right: 24px;
+  border-right: 1px solid;
+  border-color: var(--c-gray-300);
+}
+
+.entryReview {
+  color: var(--c-gray-800);
+  align-self: flex-start;
+}
+
+.entryMedia, .entryDate {
+color: var(--c-gray-500);
+}
+
+.entryName {
+  font-weight: 600;
+}

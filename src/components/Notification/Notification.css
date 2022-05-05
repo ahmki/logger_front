@@ -2,18 +2,19 @@
   position: fixed;
   width: fit-content;
   height: fit-content;
-  padding: 0.5rem;
+  padding: 0.75rem;
   left: 75%;
   top: 10%;
   border-radius: 7px;
   text-align: center;
-  padding: 0.5rem;
+  border: 1px solid;
+  border-color: var(--c-green-500);
 }
 
 .info {
   font-size: large;
-  background-color: var(--c-olive);
-  color: var(--c-gray-3);
+  background-color: var(--c-green-100);
+  color: var(--c-green-900);
 }
 
 .error {

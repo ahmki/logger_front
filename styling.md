@@ -3,23 +3,57 @@
 
 ## PRIMARY 
 
-- Neon green: #45ffbc
-- Olive: #e3ffa8
+- hsl(212, 93%, 12%), #021d3b
+- hsl(212, 89%, 18%), #052b57
+- hsl(212, 87%, 24%), #083a72
+- hsl(212, 85%, 35%), #0d54a5
+- hsl(212, 83%, 50%), #1678e9
+- hsl(212, 82%, 61%), #4a96ed
+- hsl(212, 82%, 70%), #74aef1
+- hsl(212, 88%, 80%), #9fc9f9
+- hsl(212, 93%, 94%), #e1effe
 
 ## Neutral
 
-- Black (main BG): #000000
-- Grey colors from darkest to lightest
-  - #1f1f1f
-  - #2e2e2e
-  - #313131
-  - #969593 (tertiary text color)
-  - #a6a6a6
-  - #bdbbb7
-  - #f1f1f1 (secondary text color)
-- White (primary text color): #ffffff 
+- Greys, from darkest to lightest
+  - hsl(212, 20%, 8%), #101418
+  - hsl(212, 18%, 16%), #212830
+  - hsl(212, 18%, 24%), #323c48
+  - hsl(212, 16%, 35%), #4b5868
+  - hsl(212, 12%, 45%), #657281
+  - hsl(212, 13%, 63%), #94a0ad
+  - hsl(212, 17%, 70%), #a5b2c0
+  - hsl(212, 21%, 82%), #c7d0db
+  - hsl(212, 21%, 89%), #dde3e9
+
+## ACCENTS
+
+- GREENS
+  - hsl(158, 83%, 13%), #063d28
+  - hsl(158, 80%, 46%), #17d38e
+  - hsl(158, 95%, 75%), #83fccf
+- REDS
+  - hsl(4, 95%, 12%), #3c0502
+  - hsl(4, 98%, 54%), #fd2617
+  - hsl(4, 90%, 89%), #fccdca
+- YELLOWS
+  - hsl(39, 90%, 12%), #3a2703
+  - hsl(39, 83%, 49%), #e59c15
+  - hsl(39, 96%, 87%), #fee7be
 
 # FONT
 
-- SIZE 18px
+- SIZES(px)
+  - 12
+  - 14
+  - 16
+  - 18
+  - 20
+  - 24
+  - 30
+  - 36
+  - 48
+  - 60
+  - 72
+
 - WEIGHTS 300, 400, 600
