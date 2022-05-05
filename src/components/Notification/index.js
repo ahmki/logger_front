@@ -5,7 +5,6 @@ import './Notification.css';
 
 const NotificationContainer = () => {
   const notification = useSelector(state => state.notification);
-  console.log('notification in cont', notification);
 
   return (
     <>

@@ -19,5 +19,6 @@
 
 .error {
   font-size: large;
-  background-color: darkred;
+  background-color: var(--c-red-500);
+  color: var(--c-red-900);
 }

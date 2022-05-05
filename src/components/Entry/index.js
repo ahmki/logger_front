@@ -8,6 +8,14 @@ const Entry = ({ log })  => {
 
   const dateFormatted = format(new Date(date), 'dd/MM/yyyy');
 
+  const deleteEntry = () => {
+    console.log('delete');
+  };
+
+  const editEntry = () => {
+    console.log('edit');
+  };
+
   return (
     <div className='entryItem'>
       <div className='entryItemInfo' key={id}>
@@ -17,6 +25,14 @@ const Entry = ({ log })  => {
       </div>
       <div className='entryItemReview'>
         <div className='entryReview'>{review}</div>
+      </div>
+      <div className='entryButtons'>
+        <button className='deleteBtn' onClick={deleteEntry}>
+          Delete
+        </button>
+        <button className='editBtn' onClick={editEntry}>
+          Edit review
+        </button>
       </div>
     </div>
   );

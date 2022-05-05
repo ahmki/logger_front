@@ -13,13 +13,13 @@
 .link:hover {
   transition: 0.35s ease;
   color: var(--c-text-primary);
-  border-color: var(--c-text-primary);
+  border-color: var(--c-blue-500);
 }
 
 .activeLink {
   transition: 0.25s ease;
   color: var(--c-text-primary);
-  border-color: var(--c-text-primary);
+  border-color: var(--c-blue-500);
 }
 
 .tab {

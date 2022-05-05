@@ -6,16 +6,23 @@
   border-color: var(--c-gray-300);
   display: flex;
   flex-direction: row;
-  width: 450px;
+  width: 750px;
+  height: auto;
   align-items: center;
 }
 
 .entryItemReview {
   margin-left: 24px;
+  margin-right: 24px;
+  width: 600px;
 }
 
 .entryItemInfo {
-  padding-right: 24px;
+  width: 120px;
+  height: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-right: 10px;
   border-right: 1px solid;
   border-color: var(--c-gray-300);
 }
@@ -31,4 +38,34 @@ color: var(--c-gray-500);
 
 .entryName {
   font-weight: 600;
+}
+
+.entryButtons {
+  width: 78px;
+  height: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-left: 1px solid;
+  border-color: var(--c-gray-300);
+  display: flex;
+  flex-direction: column;
+}
+
+.deleteBtn, .editBtn {
+  margin-left: 7px;
+  padding: 5px;
+  border-radius: 7px;
+  border: 0.5px solid;
+}
+
+.deleteBtn {
+  color: var(--c-red-500);
+  border-color: var(--c-red-500);
+  background-color: var(--c-red-100);
+}
+
+.editBtn {
+  color: var(--c-yellow-900);
+  border-color: var(--c-yellow-500);
+  background-color: var(--c-yellow-100);
 }
