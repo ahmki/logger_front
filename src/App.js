@@ -10,7 +10,7 @@ import Profile from './components/Profile';
 import Search from './components/Search';
 import LogEntryPage from './components/LogEntry/LogEntryPage';
 import Home from './components/Home';
-import Notification from './components/Notification';
+import NotificationContainer from './components/Notification';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { setUser } from './reducers/usersReducer';
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Notification />
+      <NotificationContainer />
       <Routes>
         <Route path="/logs/:id" element={<LogEntryPage />} />
         <Route path="/profile/:id" element={<Profile />} />
