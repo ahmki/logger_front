@@ -59,7 +59,7 @@ color: var(--c-gray-500);
 }
 
 .deleteBtn {
-  color: var(--c-red-500);
+  color: var(--c-red-900);
   border-color: var(--c-red-500);
   background-color: var(--c-red-100);
 }

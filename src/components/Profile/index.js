@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { displayNotification } from '../../reducers/notificationReducer';
 import { getUserData } from '../../services/userService';
 import Entry from '../Entry';
 import './Profile.css';
@@ -8,7 +10,10 @@ const Profile = () => {
   const [userData, setUserData] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  /* Needs some fixing with dependencies so deleting makes rerender happen
+  */
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -16,15 +21,18 @@ const Profile = () => {
         setUserData(fetchedUser);
       }
       catch(err) {
-        console.log('error: ', err);
+        dispatch(displayNotification({
+          message: 'couldnt get users data',
+          class: 'error'
+        }, 4));
       }
     };
 
     fetchUser();
   }, [id]);
 
-  const directToLog = () => {
-    navigate('/logs/1');
+  const directToLog = (id) => {
+    navigate(`/logs/${id}`);
   };
 
   /* Main rendered JSX */
@@ -39,7 +47,7 @@ const Profile = () => {
             {
               userData.logs.map(log =>
                 <div key={log.id}>
-                  <button onClick={directToLog}>
+                  <button onClick={() => directToLog(log.id)}>
                       see
                   </button>
                   <Entry log={log} />

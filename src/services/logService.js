@@ -21,4 +21,26 @@ const getEntry = async (id) => {
   return res.data;
 };
 
-export { addEntry, getEntry };
+const deleteEntry = async (id) => {
+  const res = await axios.delete(
+    `${apiBaseUrl}/logs/${id}`
+  );
+  return res.data;
+};
+
+const editEntry = async (id, editedReview) => {
+  const res = await axios.put(
+    `${apiBaseUrl}/logs/${id}`,
+    {
+      review: editedReview
+    }
+  );
+  return res.data;
+};
+
+export {
+  addEntry,
+  getEntry,
+  deleteEntry,
+  editEntry
+};
