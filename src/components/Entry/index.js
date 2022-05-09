@@ -8,7 +8,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 
-const Entry = ({ log })  => {
+const Entry = ({ log, showOptions })  => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -94,6 +94,19 @@ const Entry = ({ log })  => {
     );
   };
 
+  const entryButtons = () => {
+    return (
+      <div className='entryButtons'>
+        <button className='deleteBtn' onClick={handleDelete}>
+          Delete
+        </button>
+        <button className='editBtn' onClick={changeEditView}>
+          Edit review
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className='entryItem'>
 
@@ -111,19 +124,18 @@ const Entry = ({ log })  => {
         }
       </div>
 
-      <div className='entryButtons'>
-        <button className='deleteBtn' onClick={handleDelete}>
-          Delete
-        </button>
-        <button className='editBtn' onClick={changeEditView}>
-          Edit review
-        </button>
-      </div>
+      {
+        showOptions
+          ? entryButtons()
+          : <div></div>
+      }
+
     </div>
   );
 };
 
 Entry.propTypes = {
+  showOptions: PropTypes.bool,
   log: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,

@@ -29,7 +29,7 @@ const Profile = () => {
     };
 
     fetchUser();
-  }, [id]);
+  }, []);
 
   const directToLog = (id) => {
     navigate(`/logs/${id}`);
@@ -46,11 +46,11 @@ const Profile = () => {
           <div className='entries'>
             {
               userData.logs.map(log =>
-                <div key={log.id}>
+                <div className='entryContainer' key={log.id}>
                   <button onClick={() => directToLog(log.id)}>
                       see
                   </button>
-                  <Entry log={log} />
+                  <Entry log={log} showOptions={false}/>
                 </div>
               )
             }

@@ -28,7 +28,7 @@ const LogEntryPage = () => {
   const logView = () => {
     return (
       <div>
-        <Entry log={logEntry} />
+        <Entry log={logEntry} showOptions={true}/>
       </div>
     );
   };
