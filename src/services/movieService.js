@@ -8,4 +8,11 @@ const searchMovie = async (search) => {
   return res.data;
 };
 
-export { searchMovie };
+const getMovieInfo = async (id) => {
+  const res = await axios.get(
+    `${apiBaseUrl}/movies/${id}`
+  );
+  return res.data;
+};
+
+export { searchMovie, getMovieInfo };

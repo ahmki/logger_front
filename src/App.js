@@ -10,6 +10,7 @@ import Profile from './components/Profile';
 import Search from './components/Search';
 import LogEntryPage from './components/LogEntry/LogEntryPage';
 import Home from './components/Home';
+import Media from './components/Media';
 import NotificationContainer from './components/Notification';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -32,6 +33,7 @@ function App() {
       <Routes>
         <Route path="/logs/:id" element={<LogEntryPage />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/media/:id" element={<Media />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/logentry" element={<LogEntryForm />} />

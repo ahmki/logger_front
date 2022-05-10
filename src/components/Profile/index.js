@@ -13,6 +13,7 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   /* Needs some fixing with dependencies so deleting makes rerender happen
+  Current fix: deleted buttons on profile
   */
   useEffect(() => {
     const fetchUser = async () => {
