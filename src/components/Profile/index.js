@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { displayNotification } from '../../reducers/notificationReducer';
-import { getUserData } from '../../services/userService';
+import { setProfileData } from '../../reducers/profileReducer';
 import Entry from '../Entry';
+import ProfileNavBar from '../NavBar/ProfileNavBar';
 import './Profile.css';
 
 const Profile = () => {
-  const [userData, setUserData] = useState(null);
   const { id } = useParams();
+  const profile = useSelector(state => state.profile);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  /* Needs some fixing with dependencies so deleting makes rerender happen
-  Current fix: deleted buttons on profile
+  /* Hook gets the profile data from API backend incase redux doesn't have
+  cached profile or if cached profile is a wrong profile
   */
   useEffect(() => {
     const fetchUser = async () => {
-      try {
-        const fetchedUser = await getUserData(id);
-        setUserData(fetchedUser);
-      }
-      catch(err) {
-        dispatch(displayNotification({
-          message: 'couldnt get users data',
-          class: 'error'
-        }, 4));
+      // id from url parameter is of type string, converted to number here
+      if (!profile || profile.id !== parseFloat(id)) {
+        try {
+          dispatch(setProfileData(id));
+        }
+        catch(err) {
+          dispatch(displayNotification({
+            message: 'couldnt get users data',
+            class: 'error'
+          }, 4));
+        }
       }
     };
 
     fetchUser();
-  }, []);
+  }, [id]);
 
   const directToLog = (id) => {
     navigate(`/logs/${id}`);
@@ -41,12 +44,12 @@ const Profile = () => {
     return (
       <div className='profileBg'>
         <div className='profile'>
-          <div className='header'>
-            entries
+          <div className='profileNav'>
+            <ProfileNavBar id={id} />
           </div>
           <div className='entries'>
             {
-              userData.logs.map(log =>
+              profile.logs.map(log =>
                 <div className='entryContainer' key={log.id}>
                   <button onClick={() => directToLog(log.id)}>
                       see
@@ -71,7 +74,7 @@ const Profile = () => {
 
   return (
     <>
-      {!userData
+      {!profile
         ? loadView()
         : profileView()
       }

@@ -7,6 +7,7 @@ import LogEntryForm from './components/LogEntry';
 import Register from './components/Register';
 import SignOut from './components/SignIn/SignOut';
 import Profile from './components/Profile';
+import Library from './components/Profile/Library';
 import Search from './components/Search';
 import LogEntryPage from './components/LogEntry/LogEntryPage';
 import Home from './components/Home';
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/logs/:id" element={<LogEntryPage />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/profile/:id/library" element={<Library />} />
         <Route path="/media/:id" element={<Media />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signout" element={<SignOut />} />
