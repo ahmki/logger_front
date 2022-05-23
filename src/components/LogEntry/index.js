@@ -4,6 +4,7 @@ import { addEntry } from '../../services/logService';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { displayNotification } from '../../reducers/notificationReducer';
+import './LogEntryForm.css';
 
 const initialValues = {
   name: '',
@@ -41,6 +42,7 @@ const LogEntryForm = () => {
         <Form onSubmit={handleSubmit}>
           <div className='inputForm'>
             <Field
+              className="nameForm"
               name="name"
               type="text"
               placeholder="Name"
@@ -49,6 +51,7 @@ const LogEntryForm = () => {
 
           <div className='inputForm'>
             <Field
+              className="reviewForm"
               name="review"
               type="text"
               placeholder="review"
@@ -57,6 +60,7 @@ const LogEntryForm = () => {
 
           <div className='inputForm'>
             <Field
+              className="mediaForm"
               name="mediaType"
               type="text"
               placeholder="Type e.g movie, tv"

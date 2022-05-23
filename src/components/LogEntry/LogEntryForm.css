@@ -1,0 +1,7 @@
+.nameForm, .reviewForm, .mediaForm {
+  width: 500px;
+}
+
+.reviewForm {
+  height: 200px;
+}
