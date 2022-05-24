@@ -70,3 +70,8 @@ color: var(--c-gray-500);
   border-color: var(--c-yellow-500);
   background-color: var(--c-yellow-100);
 }
+
+.reviewEdit {
+  width: 400px;
+  height: 100px;
+}

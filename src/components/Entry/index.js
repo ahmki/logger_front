@@ -81,6 +81,7 @@ const Entry = ({ log, showOptions })  => {
           {({ handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
               <Field
+                className='reviewEdit'
                 name='reviewEdit'
                 type='text'
               />

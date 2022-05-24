@@ -5,10 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { displayNotification } from '../../reducers/notificationReducer';
 import './LogEntryForm.css';
+import StarRating from '../StarRating';
 
 const initialValues = {
   name: '',
   review: '',
+  rating: '',
   mediaType: 'movie',
 };
 
@@ -60,13 +62,21 @@ const LogEntryForm = () => {
 
           <div className='inputForm'>
             <Field
+              name="rating"
+              type="text"
+              placeholder="0-10"
+            />
+          </div>
+
+          <div className='inputForm'>
+            <Field
               className="mediaForm"
               name="mediaType"
               type="text"
               placeholder="Type e.g movie, tv"
             />
           </div>
-
+          <StarRating />
           <div>
             <button type="submit">Add entry</button>
           </div>
