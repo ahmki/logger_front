@@ -115,6 +115,7 @@ const Entry = ({ log, showOptions })  => {
         <div className='entryName'>{name}</div>
         <div className='entryMedia'>{mediaType}</div>
         <div className='entryDate'>{dateFormatted}</div>
+        <div>{log.rating}</div>
       </div>
 
       <div className='entryItemReview'>
@@ -142,7 +143,8 @@ Entry.propTypes = {
     name: PropTypes.string,
     review: PropTypes.string,
     mediaType: PropTypes.string,
-    date: PropTypes.string
+    date: PropTypes.string,
+    rating: PropTypes.string,
   })
 };
 
