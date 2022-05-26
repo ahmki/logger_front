@@ -1,12 +1,12 @@
 import React from 'react';
 import ProfileNavBar from '../NavBar/ProfileNavBar';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import LibraryTable from './LibraryTable';
+import useProfile from '../../hooks/useProfile';
 
 const Library = () => {
   const { id } = useParams();
-  const profile = useSelector(state => state.profile);
+  const profile = useProfile(id);
 
   return (
     <div className='profileBg'>
