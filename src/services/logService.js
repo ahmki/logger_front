@@ -6,9 +6,14 @@ const addEntry = async (entry, user) => {
     headers: { Authorization: 'Bearer ' + user.token }
   };
 
+  const entryToBeLogged = {
+    ...entry,
+    rating: parseFloat(entry.rating)
+  };
+
   const res = await axios.post(
     `${apiBaseUrl}/logs`,
-    entry,
+    entryToBeLogged,
     config
   );
   return res.data;

@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileNavBar from '../NavBar/ProfileNavBar';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import LibraryTable from './LibraryTable';
 
 const Library = () => {
   const { id } = useParams();
@@ -15,7 +16,11 @@ const Library = () => {
         </div>
 
         <div>
-          {profile.username}
+          {
+            profile
+              ? <LibraryTable logs={profile.logs} />
+              : <div>loading</div>
+          }
         </div>
 
       </div>

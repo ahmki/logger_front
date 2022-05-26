@@ -144,7 +144,7 @@ Entry.propTypes = {
     review: PropTypes.string,
     mediaType: PropTypes.string,
     date: PropTypes.string,
-    rating: PropTypes.string,
+    rating: PropTypes.number,
   })
 };
 
