@@ -4,7 +4,7 @@ import { setProfileData } from '../reducers/profileReducer';
 import { displayNotification } from '../reducers/notificationReducer';
 
 /*
-Custom hook for keeping track of user profile in the profile page.
+Custom hook for keeping track of user profile in the profile and profile/library page.
 */
 
 /* Hook gets the profile data from API backend incase redux doesn't have
