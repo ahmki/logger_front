@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './LibraryTable.css';
 import LibraryTableItem from './LibraryTableItem';
 
@@ -8,10 +8,15 @@ const LibraryTable = ({ logs }) => {
 
   const [sort, setSort] = useState('asc');
   const [logsToShow, setLogsToShow] = useState(logs);
-  /*const [fieldToSort, setFieldToSort] = useState('');*/
+  const [fieldToSort, setFieldToSort] = useState('');
+  console.log(fieldToSort);
 
+  useEffect(() => {
+    changeSort();
+  }, [sort, fieldToSort]);
 
-  const handleSortChange = () => {
+  const handleSortChange = (field) => {
+    setFieldToSort(field);
     if (sort === 'dsc') {
       setSort('asc');
     }
@@ -26,7 +31,16 @@ const LibraryTable = ({ logs }) => {
 
     case 'asc':
       // eslint-disable-next-line no-case-declarations
-      const ascSortedLogs = logs.sort((a, b) => b.rating - a.rating);
+      const ascSortedLogs = logs.sort((a, b) => {
+        if (fieldToSort === 'rating' ) {
+          return b.rating - a.rating;
+        }
+        if (fieldToSort === 'date') {
+          const date1 = new Date(a.date);
+          const date2 = new Date(b.date);
+          return date1 - date2;
+        }
+      });
       setLogsToShow(ascSortedLogs);
       break;
 
@@ -55,7 +69,7 @@ const LibraryTable = ({ logs }) => {
             <th onClick={() => handleSortChange('rating')}>Rating</th>
             <th>Type</th>
             <th>Review</th>
-            <th>Date</th>
+            <th onClick={() => handleSortChange('date')}>Date</th>
           </tr>
         </thead>
 
