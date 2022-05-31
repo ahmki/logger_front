@@ -2,18 +2,18 @@
 import React, { useEffect, useState } from 'react';
 import './LibraryTable.css';
 import LibraryTableItem from './LibraryTableItem';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
-// eslint-disable-next-line react/prop-types
 const LibraryTable = ({ logs }) => {
-
   const [sort, setSort] = useState('asc');
   const [logsToShow, setLogsToShow] = useState(logs);
-  const [fieldToSort, setFieldToSort] = useState('');
-  console.log(fieldToSort);
+  const [fieldToSort, setFieldToSort] = useState('asc');
+  const navigate = useNavigate();
 
   useEffect(() => {
     changeSort();
-  }, [sort, fieldToSort]);
+  }, [fieldToSort]);
 
   const handleSortChange = (field) => {
     setFieldToSort(field);
@@ -26,13 +26,18 @@ const LibraryTable = ({ logs }) => {
     changeSort();
   };
 
+  const directToLog = (id) => {
+    navigate(`/logs/${id}`);
+  };
+
+  /* sometimes sorts only few ratings for unknown reason after sorting date*/
   const changeSort = () => {
     switch(sort) {
 
     case 'asc':
       // eslint-disable-next-line no-case-declarations
       const ascSortedLogs = logs.sort((a, b) => {
-        if (fieldToSort === 'rating' ) {
+        if (fieldToSort === 'rating') {
           return b.rating - a.rating;
         }
         if (fieldToSort === 'date') {
@@ -46,11 +51,20 @@ const LibraryTable = ({ logs }) => {
 
     case 'dsc':
       // eslint-disable-next-line no-case-declarations
-      const dscSortedLogs = logs.sort((a, b) => a.rating - b.rating);
+      const dscSortedLogs = logs.sort((a, b) => {
+        if (fieldToSort === 'rating') {
+          return a.rating - b.rating;
+        }
+        if (fieldToSort === 'date') {
+          const date1 = new Date(a.date);
+          const date2 = new Date(b.date);
+          return date2 - date1;
+        }
+      });
       setLogsToShow(dscSortedLogs);
       break;
 
-    /*change solution later*/
+    /*change later*/
     default:
       // eslint-disable-next-line no-case-declarations
       const sortedLogs = logs.sort((a, b) => b.rating - a.rating);
@@ -77,7 +91,7 @@ const LibraryTable = ({ logs }) => {
           {
             logsToShow.map(log =>
               <tr key={log.id}>
-                <LibraryTableItem log={log} />
+                <LibraryTableItem log={log} directToLog={directToLog}/>
               </tr>
             )
           }
@@ -86,6 +100,19 @@ const LibraryTable = ({ logs }) => {
 
     </div>
   );
+};
+
+const LogProp = PropTypes.shape({
+  date: PropTypes.string,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  mediaType: PropTypes.string,
+  rating: PropTypes.number,
+  review: PropTypes.string,
+});
+
+LibraryTable.propTypes = {
+  logs: PropTypes.arrayOf(LogProp)
 };
 
 export default LibraryTable;

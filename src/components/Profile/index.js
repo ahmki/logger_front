@@ -1,18 +1,12 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useProfile from '../../hooks/useProfile';
-import Entry from '../Entry';
 import ProfileNavBar from '../NavBar/ProfileNavBar';
 import './Profile.css';
 
 const Profile = () => {
   const { id } = useParams();
   const profile = useProfile(id);
-  const navigate = useNavigate();
-
-  const directToLog = (id) => {
-    navigate(`/logs/${id}`);
-  };
 
   /* Main rendered JSX */
   const profileView = () => {
@@ -22,17 +16,11 @@ const Profile = () => {
           <div className='profileNav'>
             <ProfileNavBar id={id} />
           </div>
-          <div className='entries'>
-            {
-              profile.logs.map(log =>
-                <div className='entryContainer' key={log.id}>
-                  <button onClick={() => directToLog(log.id)}>
-                      see
-                  </button>
-                  <Entry log={log} showOptions={false}/>
-                </div>
-              )
-            }
+          <div className='userInfo'>
+            {profile.username}
+          </div>
+          <div className='activity'>
+
           </div>
         </div>
       </div>

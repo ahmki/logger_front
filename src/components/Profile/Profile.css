@@ -18,13 +18,6 @@
   font-weight: 600;
 }
 
-.entries {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 500px;
-}
-
 .entryContainer {
   display: flex;
   flex-direction: row;
