@@ -38,7 +38,8 @@ function App() {
         <Route path="/media/:id" element={<Media />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signout" element={<SignOut />} />
-        <Route path="/logentry" element={<LogEntryForm />} />
+        <Route path="/logentry/" element={<LogEntryForm />} />
+        <Route path="/logentry/:title" element={<LogEntryForm />} />
         <Route path="/register" element={<Register />} />
         <Route path="/search" element={<Search />} />
         <Route path="/" element={<Home/>} />

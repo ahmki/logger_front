@@ -2,22 +2,25 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { addEntry } from '../../services/logService';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { displayNotification } from '../../reducers/notificationReducer';
 import './LogEntryForm.css';
 import StarRating from '../StarRating';
 
-const initialValues = {
-  name: '',
-  review: '',
-  rating: '',
-  mediaType: 'movie',
-};
 
 const LogEntryForm = () => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { title } = useParams();
+
+  const initialName = title !== undefined ? title : '';
+  const initialValues = {
+    name: `${initialName}`,
+    review: '',
+    rating: '',
+    mediaType: 'movie',
+  };
 
   const entryHandler = async (values) => {
 
