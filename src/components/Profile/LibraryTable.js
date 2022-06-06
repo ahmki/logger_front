@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const LibraryTable = ({ logs }) => {
   const [sort, setSort] = useState('asc');
   const [logsToShow, setLogsToShow] = useState(logs);
-  const [fieldToSort, setFieldToSort] = useState('asc');
+  const [fieldToSort, setFieldToSort] = useState('dsc');
   const navigate = useNavigate();
 
   useEffect(() => {
