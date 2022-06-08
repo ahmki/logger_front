@@ -1,0 +1,17 @@
+.search {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.searchContainer {
+  width: 600px;
+  margin: 12px;
+}
+
+.searchItem {
+  padding: 8px;
+  margin: 2px;
+  border-bottom: 1px solid;
+  border-color: var(--c-blue-700);
+}

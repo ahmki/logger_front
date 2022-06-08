@@ -6,7 +6,7 @@ const SearchItem = ({ item }) => {
   const { Title, Type, Year, imdbID } = item;
 
   return (
-    <div>
+    <div className='searchItem'>
       <Link to={`/media/${imdbID}`}>{Title}</Link>
       , {Type}, {Year}
     </div>

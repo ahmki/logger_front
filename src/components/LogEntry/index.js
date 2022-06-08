@@ -12,14 +12,15 @@ const LogEntryForm = () => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { title } = useParams();
+  const { title, type } = useParams();
 
   const initialName = title !== undefined ? title : '';
+  const initialType = type !== undefined ? type : '';
   const initialValues = {
     name: `${initialName}`,
     review: '',
     rating: '',
-    mediaType: 'movie',
+    mediaType: `${initialType}`,
   };
 
   const entryHandler = async (values) => {

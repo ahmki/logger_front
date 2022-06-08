@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import SearchItem from './SearchItem';
+import './Search.css';
 
 const Search = () => {
   const search = useSelector(state => state.search);
@@ -12,15 +13,16 @@ const Search = () => {
   }
 
   return (
-    <div>
-      {
-        search.map(searchItem =>
-          <div key={searchItem.imdbID}>
-            <SearchItem item={searchItem} />
-          </div>
-        )
-      }
-
+    <div className='search'>
+      <div className='searchContainer'>
+        {
+          search.map(searchItem =>
+            <div key={searchItem.imdbID}>
+              <SearchItem item={searchItem} />
+            </div>
+          )
+        }
+      </div>
     </div>
   );
 };

@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { generatePath, useNavigate } from 'react-router-dom';
 
-const MediaInfo = ({ Title, Poster, Year, Plot, Director, Genre }) => {
+const MediaInfo = ({ Title, Poster, Year, Plot, Director, Genre, Type }) => {
   const navigate = useNavigate();
 
   const navigateToEntryForm = () => {
     navigate(
-      generatePath('/logentry/:title', {
-        title: `${Title}`
+      generatePath('/logentry/:title/:type', {
+        title: `${Title}`,
+        type: `${Type}`
       })
     );
   };
@@ -37,6 +38,7 @@ MediaInfo.propTypes = {
   Plot: PropTypes.string,
   Director: PropTypes.string,
   Genre: PropTypes.string,
+  Type: PropTypes.string,
 };
 
 export default MediaInfo;

@@ -35,6 +35,7 @@ const Media = () => {
         Year={mediaData.Year}
         Plot={mediaData.Plot}
         Genre={mediaData.Genre}
+        Type={mediaData.Type}
       />
     );
   };
