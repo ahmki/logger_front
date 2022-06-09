@@ -7,6 +7,7 @@ import './Entry.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
+import SimpleStarRating from '../StarRating/SimpleStarRating';
 
 const Entry = ({ log, showOptions })  => {
   const navigate = useNavigate();
@@ -115,7 +116,9 @@ const Entry = ({ log, showOptions })  => {
         <div className='entryName'>{name}</div>
         <div className='entryMedia'>{mediaType}</div>
         <div className='entryDate'>{dateFormatted}</div>
-        <div>{log.rating}</div>
+        <div className='starRating'>
+          <SimpleStarRating numberOfStars={log.rating} />
+        </div>
       </div>
 
       <div className='entryItemReview'>
