@@ -1,13 +1,36 @@
-import React from 'react';
-import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
+/* eslint-disable react/prop-types */
+import React, { useMemo } from 'react';
+import { BsStar, BsStarFill } from 'react-icons/bs';
 
-const StarRating = () => {
+const StarRating = ({
+  index, rating, hoverRating, onMouseLeave, onMouseEnter, onSaveRating
+}) => {
+
+  const fill = useMemo(() => {
+    if (hoverRating >= index) {
+      return true;
+    }
+    else if (!hoverRating && rating >= index) {
+      return true;
+    }
+    return false;
+  }, [rating, hoverRating, index]);
+
   return (
     <div>
       <h2>
-        <BsStar />
-        <BsStarFill />
-        <BsStarHalf />
+        <div
+          className='starRate'
+          onMouseEnter={() => onMouseEnter(index)}
+          onMouseLeave={() => onMouseLeave()}
+          onClick={() => onSaveRating(index)}
+        >
+          {
+            fill
+              ? <BsStarFill />
+              : <BsStar />
+          }
+        </div>
       </h2>
     </div>
   );

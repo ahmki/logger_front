@@ -5,3 +5,8 @@
 .reviewForm {
   height: 200px;
 }
+
+.starContainer {
+  display: flex;
+  flex-flow: row nowrap;
+}

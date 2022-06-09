@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { addEntry } from '../../services/logService';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,8 +10,12 @@ import StarRating from '../StarRating';
 
 const LogEntryForm = () => {
   const user = useSelector(state => state.user);
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  /* Set forms initial values from parameters */
   const { title, type } = useParams();
 
   const initialName = title !== undefined ? title : '';
@@ -23,10 +27,25 @@ const LogEntryForm = () => {
     mediaType: `${initialType}`,
   };
 
+  /* StarRating handling functions */
+  const onMouseEnter = (index) => {
+    setHoverRating(index);
+  };
+  const onMouseLeave = () => {
+    setHoverRating(0);
+  };
+  const onSaveRating = (index) => {
+    setRating(index);
+  };
+
   const entryHandler = async (values) => {
 
     try {
-      const entry = await addEntry(values, user);
+      const finalValues = {
+        ...values,
+        rating: rating
+      };
+      const entry = await addEntry(finalValues, user);
       dispatch(displayNotification({
         message: 'added log entry',
         class: 'info'
@@ -66,21 +85,29 @@ const LogEntryForm = () => {
 
           <div className='inputForm'>
             <Field
-              name="rating"
-              type="text"
-              placeholder="0-10"
-            />
-          </div>
-
-          <div className='inputForm'>
-            <Field
               className="mediaForm"
               name="mediaType"
               type="text"
-              placeholder="Type e.g movie, tv"
+              placeholder="Type e.g movie, series"
             />
           </div>
-          <StarRating />
+          <div className='starContainer'>
+            {[1, 2, 3, 4, 5].map((index) => {
+              return (
+                <div key={index}>
+                  <StarRating
+                    index={index}
+                    rating={rating}
+                    hoverRating={hoverRating}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                    onSaveRating={onSaveRating}
+                  />
+                </div>
+              );
+            })}
+          </div>
+
           <div>
             <button type="submit">Add entry</button>
           </div>
