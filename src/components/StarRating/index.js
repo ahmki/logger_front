@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useMemo } from 'react';
-import { BsStar, BsStarFill } from 'react-icons/bs';
+import StarIcon from './StarIcon';
 
 const StarRating = ({
   index, rating, hoverRating, onMouseLeave, onMouseEnter, onSaveRating
@@ -25,11 +25,7 @@ const StarRating = ({
           onMouseLeave={() => onMouseLeave()}
           onClick={() => onSaveRating(index)}
         >
-          {
-            fill
-              ? <BsStarFill />
-              : <BsStar />
-          }
+          <StarIcon fill={fill} />
         </div>
       </h2>
     </div>
