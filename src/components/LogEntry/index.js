@@ -58,63 +58,64 @@ const LogEntryForm = () => {
   };
 
   return (
+    <div className='formContainer'>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={entryHandler}
+      >
+        {({ handleSubmit }) => (
+          <Form onSubmit={handleSubmit}>
+            <div className='inputForm'>
+              <Field
+                className="nameForm"
+                name="name"
+                type="text"
+                placeholder="Name"
+              />
+            </div>
 
-    <Formik
-      initialValues={initialValues}
-      onSubmit={entryHandler}
-    >
-      {({ handleSubmit }) => (
-        <Form onSubmit={handleSubmit}>
-          <div className='inputForm'>
-            <Field
-              className="nameForm"
-              name="name"
-              type="text"
-              placeholder="Name"
-            />
-          </div>
+            <div className='inputForm'>
+              <Field
+                className="reviewForm"
+                name="review"
+                type="text"
+                placeholder="review"
+              />
+            </div>
 
-          <div className='inputForm'>
-            <Field
-              className="reviewForm"
-              name="review"
-              type="text"
-              placeholder="review"
-            />
-          </div>
+            <div className='inputForm'>
+              <Field
+                className="mediaForm"
+                name="mediaType"
+                type="text"
+                placeholder="Type e.g movie, series"
+              />
+            </div>
+            <div className='starContainer'>
+              {[1, 2, 3, 4, 5].map((index) => {
+                return (
+                  <div key={index}>
+                    <StarRating
+                      index={index}
+                      rating={rating}
+                      hoverRating={hoverRating}
+                      onMouseEnter={onMouseEnter}
+                      onMouseLeave={onMouseLeave}
+                      onSaveRating={onSaveRating}
+                    />
+                  </div>
+                );
+              })}
+            </div>
 
-          <div className='inputForm'>
-            <Field
-              className="mediaForm"
-              name="mediaType"
-              type="text"
-              placeholder="Type e.g movie, series"
-            />
-          </div>
-          <div className='starContainer'>
-            {[1, 2, 3, 4, 5].map((index) => {
-              return (
-                <div key={index}>
-                  <StarRating
-                    index={index}
-                    rating={rating}
-                    hoverRating={hoverRating}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onSaveRating={onSaveRating}
-                  />
-                </div>
-              );
-            })}
-          </div>
+            <div>
+              <button type="submit">Add entry</button>
+            </div>
+          </Form>
+        )}
 
-          <div>
-            <button type="submit">Add entry</button>
-          </div>
-        </Form>
-      )}
-
-    </Formik>
+      </Formik>
+    </div>
   );
 };
 

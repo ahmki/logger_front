@@ -1,9 +1,21 @@
 .nameForm, .reviewForm, .mediaForm {
+  margin-top: 7px;
   width: 500px;
+  border-radius: 5px;
+}
+
+input[type=text]:focus {
+  border: 1px solid;
+  border-color: var(--c-blue-200);
 }
 
 .reviewForm {
   height: 200px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .starContainer {
