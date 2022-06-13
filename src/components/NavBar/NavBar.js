@@ -16,14 +16,14 @@ const NavBar = () => {
         {!user
           ?
           <>
-            <NavBarTab tabname="Sign in" link="/signin" />
-            <NavBarTab tabname="Register" link="/register" />
+            <NavBarTab tabname="sign in" link="/signin" />
+            <NavBarTab tabname="register" link="/register" />
           </>
           :
           <>
-            <NavBarTab tabname="Add entry" link="/logentry" />
-            <NavBarTab tabname="Profile" link={`/profile/${user.id}`} />
-            <NavBarTab tabname="Sign out" link="/signout" />
+            <NavBarTab tabname="add custom entry" link="/logentry" />
+            <NavBarTab tabname="profile" link={`/profile/${user.id}`} />
+            <NavBarTab tabname="sign out" link="/signout" />
           </>
         }
       </div>
