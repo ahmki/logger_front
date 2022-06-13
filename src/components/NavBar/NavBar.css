@@ -1,9 +1,14 @@
 .taskbar {
-  background-color: var(--c-gray-100);
+  width: 650px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+.barContainer {
+  display: flex;
+  justify-content: space-around;
   border-bottom: 1px solid var(--c-gray-300);
 }

@@ -1,4 +1,10 @@
 
+.entryContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
 .entryItem {
   padding: 1rem;
   margin: 0.5rem;

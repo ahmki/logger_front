@@ -110,31 +110,33 @@ const Entry = ({ log, showOptions })  => {
   };
 
   return (
-    <div className='entryItem'>
+    <div className='entryContainer'>
+      <div className='entryItem'>
 
-      <div className='entryItemInfo' key={id}>
-        <div className='entryName'>{name}</div>
-        <div className='entryMedia'>{mediaType}</div>
-        <div className='entryDate'>{dateFormatted}</div>
-        <div className='starRating'>
-          <SimpleStarRating numberOfStars={log.rating} />
+        <div className='entryItemInfo' key={id}>
+          <div className='entryName'>{name}</div>
+          <div className='entryMedia'>{mediaType}</div>
+          <div className='entryDate'>{dateFormatted}</div>
+          <div className='starRating'>
+            <SimpleStarRating numberOfStars={log.rating} />
+          </div>
         </div>
-      </div>
 
-      <div className='entryItemReview'>
+        <div className='entryItemReview'>
+          {
+            editView
+              ? editInput()
+              : <div className='entryReview'>{reviewState}</div>
+          }
+        </div>
+
         {
-          editView
-            ? editInput()
-            : <div className='entryReview'>{reviewState}</div>
+          showOptions
+            ? entryButtons()
+            : <div></div>
         }
+
       </div>
-
-      {
-        showOptions
-          ? entryButtons()
-          : <div></div>
-      }
-
     </div>
   );
 };
