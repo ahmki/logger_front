@@ -4,6 +4,7 @@
   padding-bottom: 0.5rem;
   border-top: 2px solid transparent;
   display: inline-flex;
+  font-weight: 600;
 }
 
 .link {
