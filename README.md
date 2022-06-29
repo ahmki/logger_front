@@ -1,11 +1,11 @@
-Frontend for a logging app
+# Frontend for a logging app
 
 
 -React
 
 -Vanilla CSS
 
-
+work in progress
 
 
 # Getting Started with Create React App
