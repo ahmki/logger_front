@@ -3,6 +3,7 @@
 
 -React
   - State handling with Redux
+  - Testing with jest and cypress (to be done)
 
 -Vanilla CSS
 
