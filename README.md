@@ -2,11 +2,12 @@
 
 
 -React
+  - State handling with Redux
 
 -Vanilla CSS
 
 
-# work in progress
+# (work in progress)
 
 
 
